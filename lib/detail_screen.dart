@@ -18,7 +18,7 @@ class DetailScreen extends StatelessWidget {
             Stack(
               children: <Widget>[
                 Hero(
-                    tag: 'logo',
+                    tag: place.name,
                     child: Image.asset(place.imageAsset),
                 ),
                 SafeArea(
@@ -94,15 +94,12 @@ class DetailScreen extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(16.0),
-              child: Hero(
-                tag: 'desc',
-                child: Text(
-                  place.description,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: 'Oxygen',
-                  ),
+              child: Text(
+                place.description,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontFamily: 'Oxygen',
                 ),
               ),
             ),
@@ -164,10 +161,10 @@ class FavoriteButton extends StatefulWidget {
   const FavoriteButton({Key? key}) : super(key: key);
 
   @override
-  _FavoriteButtonState createState() => _FavoriteButtonState();
+  FavoriteButtonState createState() => FavoriteButtonState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
+class FavoriteButtonState extends State<FavoriteButton> {
   bool isFavorite = false;
 
   @override
