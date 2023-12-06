@@ -17,7 +17,10 @@ class DetailScreen extends StatelessWidget {
           children: <Widget>[
             Stack(
               children: <Widget>[
-                Image.asset(place.imageAsset),
+                Hero(
+                    tag: 'logo',
+                    child: Image.asset(place.imageAsset),
+                ),
                 SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -91,12 +94,15 @@ class DetailScreen extends StatelessWidget {
             ),
             Container(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                place.description,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16.0,
-                  fontFamily: 'Oxygen',
+              child: Hero(
+                tag: 'desc',
+                child: Text(
+                  place.description,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: 'Oxygen',
+                  ),
                 ),
               ),
             ),
