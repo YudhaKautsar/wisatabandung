@@ -4,7 +4,6 @@ import 'package:wisatabandung/model/tourism_place.dart';
 var informationTextStyle = const TextStyle(fontFamily: 'Oxygen');
 
 class DetailScreen extends StatelessWidget {
-
   final TourismPlace place;
 
   const DetailScreen({Key? key, required this.place}) : super(key: key);
@@ -43,7 +42,7 @@ class DetailScreen extends StatelessWidget {
             ),
             Container(
               margin: const EdgeInsets.only(top: 16.0),
-              child:  Text(
+              child: Text(
                 place.name,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
@@ -69,16 +68,22 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      const Icon(Icons.access_time_outlined),
+                      const Icon(Icons.access_time),
                       const SizedBox(height: 8.0),
-                      Text(place.openTime, style: informationTextStyle,),
+                      Text(
+                        place.openTime,
+                        style: informationTextStyle,
+                      ),
                     ],
                   ),
                   Column(
                     children: <Widget>[
                       const Icon(Icons.monetization_on),
                       const SizedBox(height: 8.0),
-                      Text(place.ticketPrice, style: informationTextStyle,),
+                      Text(
+                        place.ticketPrice,
+                        style: informationTextStyle,
+                      ),
                     ],
                   ),
                 ],
@@ -90,8 +95,8 @@ class DetailScreen extends StatelessWidget {
                 place.description,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: 'Oxygen'
+                  fontSize: 16.0,
+                  fontFamily: 'Oxygen',
                 ),
               ),
             ),
@@ -141,7 +146,7 @@ class DetailScreen extends StatelessWidget {
                 //   )
                 // ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -153,22 +158,24 @@ class FavoriteButton extends StatefulWidget {
   const FavoriteButton({Key? key}) : super(key: key);
 
   @override
-  FavoriteButtonState createState() => FavoriteButtonState();
+  _FavoriteButtonState createState() => _FavoriteButtonState();
 }
 
-class FavoriteButtonState extends State<FavoriteButton> {
+class _FavoriteButtonState extends State<FavoriteButton> {
   bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: Icon(
-            isFavorite ? Icons.favorite : Icons.favorite_border,
-          color: Colors.red,
-        ),
-        onPressed: () {
-          setState(() {
-            isFavorite = !isFavorite;
-          });
+      icon: Icon(
+        isFavorite ? Icons.favorite : Icons.favorite_border,
+        color: Colors.red,
+      ),
+      onPressed: () {
+        setState(() {
+          isFavorite = !isFavorite;
         });
+      },
+    );
   }
 }
